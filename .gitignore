@@ -1,0 +1,26 @@
+# /qompassai/hyprlua/.gitignore
+# Qompass AI HyprLua lua_ls Addon GitIgnore
+# Copyright (C) 2026 Qompass AI, All rights reserved
+*.rock
+*.src.rock
+*.all.rock
+luarocks-build*/
+*.luac
+*.lua~
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+.nvim.lua
+.neoconf.json
+luacov.stats.out
+luacov.report.out
+.luacov
+result
+result-*
+.direnv/
+*.log
+*.bak
+.env
