@@ -1,15 +1,15 @@
-#!/usr/bin/env lua
+#!/usr/bin/env lua5.4
+---@version 5.4
 -- /qompassai/lua/lua_ls/addons/hyprlua/plugin.lua
 -- Qompass AI HyprLua lua_ls Addon - Text Transform Plugin
 -- Copyright (C) 2026 Qompass AI, All rights reserved.
 -- SPDX-License-Identifier: Apache-2.0
----@class diff
----@field start  integer
----@field finish integer
----@field text   string
-
----@param uri  string
----@param text string
+---@class                    diff
+---@field start                                            integer
+---@field finish                                           integer
+---@field text                                             string
+---@param uri                                              string
+---@param text                                             string
 ---@return nil|diff[]
 function OnSetText(uri, text)
     if not uri:match('hypr.*%.lua$') then

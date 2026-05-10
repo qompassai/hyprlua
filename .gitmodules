@@ -1,0 +1,19 @@
+# qompassai/hyprlua/.gitmodules
+# Qompass AI Hyprlua Git Submodules
+# Copyright (C) 2026 Qompass AI, All rights reserved
+# --------------------------------------------------
+[submodule "extern/Hyprland"]
+	branch = main
+  path   = extern/Hyprland
+	shallow = true
+	url    = https://github.com/hyprwm/Hyprland
+[submodule "extern/LLS-Addons"]
+	path   = extern/LLS-Addons
+	url    = https://github.com/LuaLS/LLS-Addons
+	branch = main
+	shallow = true
+[submodule "extern/addon-template"]
+	path   = extern/addon-template
+	url    = https://github.com/LuaLS/addon-template
+	branch = main
+	shallow = true

@@ -3,22 +3,16 @@
 <!-- Copyright (C) 2026 Qompass AI, All rights reserved ----------->
 <!------------------------------------------------------------------>
 
+<div align="center">
+
+<img src="assets/hyprlua_notxt.png" alt="Hyprlua" width="160" />
+
 <h2>Qompass AI HyprLua</h2>
 
-<h3>lua_ls addon providing full EmmyLua annotations for the Hyprland ≥ 0.55 Lua config API</h3>
+<h3>lua_ls addon providing full LuaCATS annotations for the Hyprland ≥ 0.55 Lua config API</h3>
 
 ![Repository Views](https://komarev.com/ghpvc/?username=qompassai-hyprlua)
 ![GitHub all releases](https://img.shields.io/github/downloads/qompassai/hyprlua/total?style=flat-square)
-
-<p align="center"<!----------/qompassai/lua/lua_ls/addons/hyprlua/README.md ------->
-<!-- ----------Qompass AI HyprLua lua_ls Addon -------------------->
-<!-- Copyright (C) 2026 Qompass AI, All rights reserved ----------->
-<!------------------------------------------------------------------>
-
-<h2>Qompass AI HyprLua</h2>
-
-<h3>lua_ls addon providing full EmmyLua annotations for the Hyprland ≥ 0.55 Lua config API</h3>
-
 
 <p align="center">
   <a href="https://hyprland.org">
@@ -47,7 +41,7 @@
   </a>
 </p>
 
-<details>
+</div><details>
   <summary style="font-size: 1.4em; font-weight: bold; padding: 15px; background: #667eea; color: white; border-radius: 10px; cursor: pointer; margin: 10px 0;">
     <strong>▶️ Quick Start</strong>
   </summary>

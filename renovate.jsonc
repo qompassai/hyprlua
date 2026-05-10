@@ -1,0 +1,76 @@
+// /qompassai/hyprlua/renovate.json
+// Qompass AI Renovate Config
+// Copyright (C) 2025 Qompass AI, All rights reserved
+///////////////////////////////////////////////////////////////
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": false,
+  "baseBranches": ["main"],
+  "commitMessagePrefix": "chore(deps): ",
+  "dependencyDashboard": true,
+  "extends": [
+    "config:best-practices"
+  ],
+  "labels": ["dependencies", "renovate"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on monday"]
+  },
+  "nix": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "allowedVersions": "/^5\\.4\\./",
+      "description": "Hyprland 0.55+ uses Lua 5.4 — drop 5.1/LuaJIT constraints",
+      "matchPackageNames": [
+        "hyprland",
+        "lua",
+        "lua-language-server",
+        "lua5.4",
+        "luv"
+      ]
+    },
+    {
+      "automerge": true,
+      "description": "lua-language-server addon API — allow all non-breaking updates",
+      "matchPackageNames": [
+        "LuaLS/lua-language-server",
+        "luals",
+        "lua-language-server"
+      ],
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "automerge": false,
+      "description": "Pin Neovim-ecosystem deps separately from Hyprland lua runtime",
+      "groupName": "neovim-ecosystem",
+      "matchPackageNames": [
+        "neovim",
+        "nvim",
+        "plenary",
+        "telescope"
+      ]
+    },
+    {
+      "automerge": false,
+      "dependencyDashboardApproval": true,
+      "description": "Hyprland core — never automerge, major changes break configs",
+      "groupName": "hyprland-core",
+      "matchPackageNames": [
+        "hyprland",
+        "hyprlang",
+        "hyprutils",
+        "hyprwayland-scanner"
+      ],
+      "matchUpdateTypes": ["major", "minor", "patch"]
+    },
+    {
+      "automerge": true,
+      "description": "Nix flake inputs — weekly lock update",
+      "matchManagers": ["nix"],
+      "matchUpdateTypes": ["digest", "pin"],
+      "schedule": ["before 6am on monday"]
+    }
+  ]
+}
