@@ -36,6 +36,8 @@ GENERATE_TREEVIEW      = YES
 HAVE_DOT               = NO
 HTML_COLORSTYLE        = DARK
 HTML_DYNAMIC_SECTIONS  = YES
+HTML_EXTRA_STYLESHEET  = docs/doxygen-custom.css
+HTML_HEADER            = docs/doxygen-header.html
 HTML_OUTPUT            = html
 HTML_TIMESTAMP         = YES
 INCLUDE_GRAPH          = YES
@@ -54,7 +56,7 @@ PREDEFINED             = APICALL=              \
                          EXPORT=               \
                          HYPRLAND_API_VERSION=
 PROJECT_BRIEF          = "LuaCATS annotations and Lua scripting addon for Hyprland 0.55+"
-PROJECT_LOGO           = assets/logo.png
+PROJECT_LOGO           = assets/hyprlua_notxt.png
 PROJECT_NAME           = "Hyprlua"
 PROJECT_NUMBER         = 0.1.0
 QT_AUTOBRIEF           = NO

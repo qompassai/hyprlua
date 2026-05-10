@@ -1,0 +1,16 @@
+/* doxygen-custom.css */
+/* Qompass AI - [ ] */
+/* Copyright (C) 2026 Qompass AI, All rights reserved */
+/* ---------------------------------------- */
+#hyprlua-header {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #0d1117;
+  border-bottom: 1px solid #21262d;
+}
+
+#hyprlua-header img {
+  height: 40px;
+  width: auto;
+}
