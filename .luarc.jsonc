@@ -1,0 +1,41 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/lua-language-server/master/meta/schemas/luarc.schema.json",
+  "runtime.version": "LuaJIT",
+  "workspace.library": [
+    "/usr/share/hypr/stubs",
+    "./stubs"
+  ],
+  "workspace.checkThirdParty": false,
+  "workspace.useGitIgnore": true,
+  "workspace.ignoreDir": [
+    "tmp",
+    ".git"
+  ],
+  "diagnostics.globals": [
+    "hl"
+  ],
+  "diagnostics.disable": [
+    "lowercase-global",
+    "undefined-type",
+    "unused-local"
+  ],
+  "diagnostics.enable": true,
+  "diagnostics.neededFileStatus": {
+    "undefined-field": "Any",
+    "unused-function": "Opened",
+    "unused-var": "Opened"
+  },
+  "diagnostics.severity": {
+    "unused-function": "Warning",
+    "unused-var": "Hint",
+    "undefined-field": "Warning"
+  },
+  "semantic.enable": true,
+  "semantic.keyword": true,
+  "format.enable": true,
+  "type.cast": true,
+  "type.weakNilCheck": true,
+  "type.weakUnionCheck": true,
+  "completion.keywordSnippet": "Replace",
+  "completion.workspaceWord": true
+}

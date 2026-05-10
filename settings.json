@@ -1,0 +1,18 @@
+{
+    "Lua.runtime.version": "Lua 5.4",
+    "Lua.workspace.library": [
+        "${3rd}/hyprlua/library"
+    ],
+    "Lua.diagnostics.globals": [
+        "hl"
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global"
+    ],
+    "Lua.completion.showWord": "Disable",
+    "Lua.hint.enable": true,
+    "Lua.hint.paramType": true,
+    "Lua.hint.returnType": true,
+    "Lua.hint.arrayIndex": "Disable"
+}
+

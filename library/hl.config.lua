@@ -1,0 +1,710 @@
+-- /qompassai/lua/lua_ls/addons/hyprlua/library/hl.config.lua
+-- Qompass AI HyprLua lua_ls Addon Library Config
+--
+-- Copyright (C) 2026 Qompass AI, All rights reserved.
+-- SPDX-License-Identifier: Apache-2.0
+--
+-- Licensed under the Apache License, Version 2.0 (the "License");
+-- you may not use this file except in compliance with the License.
+-- You may obtain a copy of the License at
+--
+--     https://www.apache.org/licenses/LICENSE-2.0
+--
+-- Unless required by applicable law or agreed to in writing, software
+-- distributed under the License is distributed on an "AS IS" BASIS,
+-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-- See the License for the specific language governing permissions and
+-- limitations under the License.
+--
+-- Portions derived from Hyprland stub generator (scripts/generateLuaStubs.py)
+-- Copyright (C) vaxerski and Hyprland contributors
+-- SPDX-License-Identifier: BSD-3-Clause
+-- Source: https://github.com/hyprwm/Hyprland
+---@meta
+
+---@alias HL.ConfigKey
+---| "animations.enabled"
+---| "animations.workspace_wraparound"
+---| "binds.allow_pin_fullscreen"
+---| "binds.allow_workspace_cycles"
+---| "binds.disable_keybind_grabbing"
+---| "binds.drag_threshold"
+---| "binds.focus_preferred_method"
+---| "binds.hide_special_on_workspace_change"
+---| "binds.ignore_group_lock"
+---| "binds.movefocus_cycles_fullscreen"
+---| "binds.movefocus_cycles_groupfirst"
+---| "binds.pass_mouse_when_bound"
+---| "binds.scroll_event_delay"
+---| "binds.window_direction_monitor_fallback"
+---| "binds.workspace_back_and_forth"
+---| "binds.workspace_center_on"
+---| "cursor.default_monitor"
+---| "cursor.enable_hyprcursor"
+---| "cursor.hide_on_key_press"
+---| "cursor.hide_on_tablet"
+---| "cursor.hide_on_touch"
+---| "cursor.hotspot_padding"
+---| "cursor.inactive_timeout"
+---| "cursor.invisible"
+---| "cursor.min_refresh_rate"
+---| "cursor.no_break_fs_vrr"
+---| "cursor.no_hardware_cursors"
+---| "cursor.no_warps"
+---| "cursor.persistent_warps"
+---| "cursor.sync_gsettings_theme"
+---| "cursor.use_cpu_buffer"
+---| "cursor.warp_back_after_non_mouse_input"
+---| "cursor.warp_on_change_workspace"
+---| "cursor.warp_on_toggle_special"
+---| "cursor.zoom_detached_camera"
+---| "cursor.zoom_disable_aa"
+---| "cursor.zoom_factor"
+---| "cursor.zoom_rigid"
+---| "debug.colored_stdout_logs"
+---| "debug.damage_blink"
+---| "debug.damage_tracking"
+---| "debug.disable_logs"
+---| "debug.disable_scale_checks"
+---| "debug.disable_time"
+---| "debug.ds_handle_same_buffer"
+---| "debug.ds_handle_same_buffer_fifo"
+---| "debug.enable_stdout_logs"
+---| "debug.error_limit"
+---| "debug.error_position"
+---| "debug.fifo_pending_workaround"
+---| "debug.full_cm_proto"
+---| "debug.gl_debugging"
+---| "debug.invalidate_fp16"
+---| "debug.log_damage"
+---| "debug.manual_crash"
+---| "debug.overlay"
+---| "debug.pass"
+---| "debug.render_solitary_wo_damage"
+---| "debug.suppress_errors"
+---| "debug.vfr"
+---| "decoration.active_opacity"
+---| "decoration.blur.brightness"
+---| "decoration.blur.contrast"
+---| "decoration.blur.enabled"
+---| "decoration.blur.ignore_opacity"
+---| "decoration.blur.input_methods"
+---| "decoration.blur.input_methods_ignorealpha"
+---| "decoration.blur.new_optimizations"
+---| "decoration.blur.noise"
+---| "decoration.blur.passes"
+---| "decoration.blur.popups"
+---| "decoration.blur.popups_ignorealpha"
+---| "decoration.blur.size"
+---| "decoration.blur.special"
+---| "decoration.blur.vibrancy"
+---| "decoration.blur.vibrancy_darkness"
+---| "decoration.blur.xray"
+---| "decoration.border_part_of_window"
+---| "decoration.dim_around"
+---| "decoration.dim_inactive"
+---| "decoration.dim_modal"
+---| "decoration.dim_special"
+---| "decoration.dim_strength"
+---| "decoration.fullscreen_opacity"
+---| "decoration.glow.color"
+---| "decoration.glow.color_inactive"
+---| "decoration.glow.enabled"
+---| "decoration.glow.range"
+---| "decoration.glow.render_power"
+---| "decoration.inactive_opacity"
+---| "decoration.rounding"
+---| "decoration.rounding_power"
+---| "decoration.screen_shader"
+---| "decoration.shadow.color"
+---| "decoration.shadow.color_inactive"
+---| "decoration.shadow.enabled"
+---| "decoration.shadow.offset"
+---| "decoration.shadow.range"
+---| "decoration.shadow.render_power"
+---| "decoration.shadow.scale"
+---| "decoration.shadow.sharp"
+---| "dwindle.default_split_ratio"
+---| "dwindle.force_split"
+---| "dwindle.permanent_direction_override"
+---| "dwindle.precise_mouse_move"
+---| "dwindle.preserve_split"
+---| "dwindle.smart_resizing"
+---| "dwindle.smart_split"
+---| "dwindle.special_scale_factor"
+---| "dwindle.split_bias"
+---| "dwindle.split_width_multiplier"
+---| "dwindle.use_active_for_splits"
+---| "ecosystem.enforce_permissions"
+---| "ecosystem.no_donation_nag"
+---| "ecosystem.no_update_news"
+---| "experimental.wp_cm_1_2"
+---| "general.allow_tearing"
+---| "general.border_size"
+---| "general.col.active_border"
+---| "general.col.inactive_border"
+---| "general.col.nogroup_border"
+---| "general.col.nogroup_border_active"
+---| "general.extend_border_grab_area"
+---| "general.float_gaps"
+---| "general.gaps_in"
+---| "general.gaps_out"
+---| "general.gaps_workspaces"
+---| "general.hover_icon_on_border"
+---| "general.layout"
+---| "general.locale"
+---| "general.modal_parent_blocking"
+---| "general.no_focus_fallback"
+---| "general.resize_corner"
+---| "general.resize_on_border"
+---| "general.snap.border_overlap"
+---| "general.snap.enabled"
+---| "general.snap.monitor_gap"
+---| "general.snap.respect_gaps"
+---| "general.snap.window_gap"
+---| "gestures.close_max_timeout"
+---| "gestures.scrolling.move_snap_cursor"
+---| "gestures.scrolling.move_snap_to_grid"
+---| "gestures.workspace_swipe_cancel_ratio"
+---| "gestures.workspace_swipe_create_new"
+---| "gestures.workspace_swipe_direction_lock"
+---| "gestures.workspace_swipe_direction_lock_threshold"
+---| "gestures.workspace_swipe_distance"
+---| "gestures.workspace_swipe_forever"
+---| "gestures.workspace_swipe_invert"
+---| "gestures.workspace_swipe_min_speed_to_force"
+---| "gestures.workspace_swipe_touch"
+---| "gestures.workspace_swipe_touch_invert"
+---| "gestures.workspace_swipe_use_r"
+---| "group.auto_group"
+---| "group.col.border_active"
+---| "group.col.border_inactive"
+---| "group.col.border_locked_active"
+---| "group.col.border_locked_inactive"
+---| "group.drag_into_group"
+---| "group.focus_removed_window"
+---| "group.group_on_movetoworkspace"
+---| "group.groupbar.blur"
+---| "group.groupbar.col.active"
+---| "group.groupbar.col.inactive"
+---| "group.groupbar.col.locked_active"
+---| "group.groupbar.col.locked_inactive"
+---| "group.groupbar.enabled"
+---| "group.groupbar.font_family"
+---| "group.groupbar.font_size"
+---| "group.groupbar.font_weight_active"
+---| "group.groupbar.font_weight_inactive"
+---| "group.groupbar.gaps_in"
+---| "group.groupbar.gaps_out"
+---| "group.groupbar.gradient_round_only_edges"
+---| "group.groupbar.gradient_rounding"
+---| "group.groupbar.gradient_rounding_power"
+---| "group.groupbar.gradients"
+---| "group.groupbar.height"
+---| "group.groupbar.indicator_gap"
+---| "group.groupbar.indicator_height"
+---| "group.groupbar.keep_upper_gap"
+---| "group.groupbar.middle_click_close"
+---| "group.groupbar.priority"
+---| "group.groupbar.render_titles"
+---| "group.groupbar.round_only_edges"
+---| "group.groupbar.rounding"
+---| "group.groupbar.rounding_power"
+---| "group.groupbar.scrolling"
+---| "group.groupbar.stacked"
+---| "group.groupbar.text_color"
+---| "group.groupbar.text_color_inactive"
+---| "group.groupbar.text_color_locked_active"
+---| "group.groupbar.text_color_locked_inactive"
+---| "group.groupbar.text_offset"
+---| "group.groupbar.text_padding"
+---| "group.insert_after_current"
+---| "group.merge_floated_into_tiled_on_groupbar"
+---| "group.merge_groups_on_drag"
+---| "group.merge_groups_on_groupbar"
+---| "input.accel_profile"
+---| "input.emulate_discrete_scroll"
+---| "input.float_switch_override_focus"
+---| "input.focus_on_close"
+---| "input.follow_mouse"
+---| "input.follow_mouse_shrink"
+---| "input.follow_mouse_threshold"
+---| "input.force_no_accel"
+---| "input.kb_file"
+---| "input.kb_layout"
+---| "input.kb_model"
+---| "input.kb_options"
+---| "input.kb_rules"
+---| "input.kb_variant"
+---| "input.left_handed"
+---| "input.mouse_refocus"
+---| "input.natural_scroll"
+---| "input.numlock_by_default"
+---| "input.off_window_axis_events"
+---| "input.repeat_delay"
+---| "input.repeat_rate"
+---| "input.resolve_binds_by_sym"
+---| "input.rotation"
+---| "input.scroll_button"
+---| "input.scroll_button_lock"
+---| "input.scroll_factor"
+---| "input.scroll_method"
+---| "input.scroll_points"
+---| "input.sensitivity"
+---| "input.special_fallthrough"
+---| "input.tablet.absolute_region_position"
+---| "input.tablet.active_area_position"
+---| "input.tablet.active_area_size"
+---| "input.tablet.left_handed"
+---| "input.tablet.output"
+---| "input.tablet.region_position"
+---| "input.tablet.region_size"
+---| "input.tablet.relative_input"
+---| "input.tablet.transform"
+---| "input.touchdevice.enabled"
+---| "input.touchdevice.output"
+---| "input.touchdevice.transform"
+---| "input.touchpad.clickfinger_behavior"
+---| "input.touchpad.disable_while_typing"
+---| "input.touchpad.drag_3fg"
+---| "input.touchpad.drag_lock"
+---| "input.touchpad.flip_x"
+---| "input.touchpad.flip_y"
+---| "input.touchpad.middle_button_emulation"
+---| "input.touchpad.natural_scroll"
+---| "input.touchpad.scroll_factor"
+---| "input.touchpad.tap_and_drag"
+---| "input.touchpad.tap_button_map"
+---| "input.touchpad.tap_to_click"
+---| "input.virtualkeyboard.release_pressed_on_close"
+---| "input.virtualkeyboard.share_states"
+---| "layout.single_window_aspect_ratio"
+---| "layout.single_window_aspect_ratio_tolerance"
+---| "master.allow_small_split"
+---| "master.always_keep_position"
+---| "master.center_ignores_reserved"
+---| "master.center_master_fallback"
+---| "master.drop_at_cursor"
+---| "master.mfact"
+---| "master.new_on_active"
+---| "master.new_on_top"
+---| "master.new_status"
+---| "master.orientation"
+---| "master.slave_count_for_center_master"
+---| "master.smart_resizing"
+---| "master.special_scale_factor"
+---| "misc.allow_session_lock_restore"
+---| "misc.always_follow_on_dnd"
+---| "misc.animate_manual_resizes"
+---| "misc.animate_mouse_windowdragging"
+---| "misc.anr_missed_pings"
+---| "misc.background_color"
+---| "misc.close_special_on_empty"
+---| "misc.col.splash"
+---| "misc.disable_autoreload"
+---| "misc.disable_hyprland_guiutils_check"
+---| "misc.disable_hyprland_logo"
+---| "misc.disable_scale_notification"
+---| "misc.disable_splash_rendering"
+---| "misc.disable_watchdog_warning"
+---| "misc.disable_xdg_env_checks"
+---| "misc.enable_anr_dialog"
+---| "misc.enable_swallow"
+---| "misc.exit_window_retains_fullscreen"
+---| "misc.focus_on_activate"
+---| "misc.font_family"
+---| "misc.force_default_wallpaper"
+---| "misc.initial_workspace_tracking"
+---| "misc.key_press_enables_dpms"
+---| "misc.layers_hog_keyboard_focus"
+---| "misc.lockdead_screen_delay"
+---| "misc.middle_click_paste"
+---| "misc.mouse_move_enables_dpms"
+---| "misc.mouse_move_focuses_monitor"
+---| "misc.name_vk_after_proc"
+---| "misc.on_focus_under_fullscreen"
+---| "misc.render_unfocused_fps"
+---| "misc.screencopy_force_8b"
+---| "misc.session_lock_xray"
+---| "misc.size_limits_tiled"
+---| "misc.splash_font_family"
+---| "misc.swallow_exception_regex"
+---| "misc.swallow_regex"
+---| "misc.vrr"
+---| "opengl.nvidia_anti_flicker"
+---| "quirks.prefer_hdr"
+---| "quirks.skip_non_kms_dmabuf_formats"
+---| "render.cm_auto_hdr"
+---| "render.cm_enabled"
+---| "render.cm_sdr_eotf"
+---| "render.commit_timing_enabled"
+---| "render.ctm_animation"
+---| "render.direct_scanout"
+---| "render.expand_undersized_textures"
+---| "render.fp16_sdr_tf"
+---| "render.icc_vcgt_enabled"
+---| "render.keep_unmodified_copy"
+---| "render.new_render_scheduling"
+---| "render.non_shader_cm"
+---| "render.non_shader_cm_interop"
+---| "render.send_content_type"
+---| "render.use_fp16"
+---| "render.use_shader_blur_blend"
+---| "render.xp_mode"
+---| "scrolling.column_width"
+---| "scrolling.direction"
+---| "scrolling.explicit_column_widths"
+---| "scrolling.focus_fit_method"
+---| "scrolling.follow_focus"
+---| "scrolling.follow_min_visible"
+---| "scrolling.fullscreen_on_one_column"
+---| "scrolling.wrap_focus"
+---| "scrolling.wrap_swapcol"
+---| "xwayland.create_abstract_socket"
+---| "xwayland.enabled"
+---| "xwayland.force_zero_scaling"
+---| "xwayland.use_nearest_neighbor"
+
+---@class HL.ConfigValueTypes
+---@field ['animations.enabled'] boolean
+---@field ['animations.workspace_wraparound'] boolean
+---@field ['binds.allow_pin_fullscreen'] boolean
+---@field ['binds.allow_workspace_cycles'] boolean
+---@field ['binds.disable_keybind_grabbing'] boolean
+---@field ['binds.drag_threshold'] integer|boolean
+---@field ['binds.focus_preferred_method'] integer|boolean
+---@field ['binds.hide_special_on_workspace_change'] boolean
+---@field ['binds.ignore_group_lock'] boolean
+---@field ['binds.movefocus_cycles_fullscreen'] boolean
+---@field ['binds.movefocus_cycles_groupfirst'] boolean
+---@field ['binds.pass_mouse_when_bound'] boolean
+---@field ['binds.scroll_event_delay'] integer|boolean
+---@field ['binds.window_direction_monitor_fallback'] boolean
+---@field ['binds.workspace_back_and_forth'] boolean
+---@field ['binds.workspace_center_on'] integer|boolean
+---@field ['cursor.default_monitor'] string
+---@field ['cursor.enable_hyprcursor'] boolean
+---@field ['cursor.hide_on_key_press'] boolean
+---@field ['cursor.hide_on_tablet'] boolean
+---@field ['cursor.hide_on_touch'] boolean
+---@field ['cursor.hotspot_padding'] integer|boolean
+---@field ['cursor.inactive_timeout'] number|boolean
+---@field ['cursor.invisible'] boolean
+---@field ['cursor.min_refresh_rate'] integer|boolean
+---@field ['cursor.no_break_fs_vrr'] integer|boolean
+---@field ['cursor.no_hardware_cursors'] integer|boolean
+---@field ['cursor.no_warps'] boolean
+---@field ['cursor.persistent_warps'] boolean
+---@field ['cursor.sync_gsettings_theme'] boolean
+---@field ['cursor.use_cpu_buffer'] integer|boolean
+---@field ['cursor.warp_back_after_non_mouse_input'] boolean
+---@field ['cursor.warp_on_change_workspace'] integer|boolean
+---@field ['cursor.warp_on_toggle_special'] integer|boolean
+---@field ['cursor.zoom_detached_camera'] boolean
+---@field ['cursor.zoom_disable_aa'] boolean
+---@field ['cursor.zoom_factor'] number|boolean
+---@field ['cursor.zoom_rigid'] boolean
+---@field ['debug.colored_stdout_logs'] boolean
+---@field ['debug.damage_blink'] boolean
+---@field ['debug.damage_tracking'] integer|boolean
+---@field ['debug.disable_logs'] boolean
+---@field ['debug.disable_scale_checks'] boolean
+---@field ['debug.disable_time'] boolean
+---@field ['debug.ds_handle_same_buffer'] boolean
+---@field ['debug.ds_handle_same_buffer_fifo'] boolean
+---@field ['debug.enable_stdout_logs'] boolean
+---@field ['debug.error_limit'] integer|boolean
+---@field ['debug.error_position'] integer|boolean
+---@field ['debug.fifo_pending_workaround'] boolean
+---@field ['debug.full_cm_proto'] boolean
+---@field ['debug.gl_debugging'] boolean
+---@field ['debug.invalidate_fp16'] integer|boolean
+---@field ['debug.log_damage'] boolean
+---@field ['debug.manual_crash'] integer|boolean
+---@field ['debug.overlay'] boolean
+---@field ['debug.pass'] boolean
+---@field ['debug.render_solitary_wo_damage'] boolean
+---@field ['debug.suppress_errors'] boolean
+---@field ['debug.vfr'] boolean
+---@field ['decoration.active_opacity'] number|boolean
+---@field ['decoration.blur.brightness'] number|boolean
+---@field ['decoration.blur.contrast'] number|boolean
+---@field ['decoration.blur.enabled'] boolean
+---@field ['decoration.blur.ignore_opacity'] boolean
+---@field ['decoration.blur.input_methods'] boolean
+---@field ['decoration.blur.input_methods_ignorealpha'] number|boolean
+---@field ['decoration.blur.new_optimizations'] boolean
+---@field ['decoration.blur.noise'] number|boolean
+---@field ['decoration.blur.passes'] integer|boolean
+---@field ['decoration.blur.popups'] boolean
+---@field ['decoration.blur.popups_ignorealpha'] number|boolean
+---@field ['decoration.blur.size'] integer|boolean
+---@field ['decoration.blur.special'] boolean
+---@field ['decoration.blur.vibrancy'] number|boolean
+---@field ['decoration.blur.vibrancy_darkness'] number|boolean
+---@field ['decoration.blur.xray'] boolean
+---@field ['decoration.border_part_of_window'] boolean
+---@field ['decoration.dim_around'] number|boolean
+---@field ['decoration.dim_inactive'] boolean
+---@field ['decoration.dim_modal'] boolean
+---@field ['decoration.dim_special'] number|boolean
+---@field ['decoration.dim_strength'] number|boolean
+---@field ['decoration.fullscreen_opacity'] number|boolean
+---@field ['decoration.glow.color'] string
+---@field ['decoration.glow.color_inactive'] string
+---@field ['decoration.glow.enabled'] boolean
+---@field ['decoration.glow.range'] integer|boolean
+---@field ['decoration.glow.render_power'] integer|boolean
+---@field ['decoration.inactive_opacity'] number|boolean
+---@field ['decoration.rounding'] integer|boolean
+---@field ['decoration.rounding_power'] number|boolean
+---@field ['decoration.screen_shader'] string
+---@field ['decoration.shadow.color'] string
+---@field ['decoration.shadow.color_inactive'] string
+---@field ['decoration.shadow.enabled'] boolean
+---@field ['decoration.shadow.offset'] HL.Vec2Like
+---@field ['decoration.shadow.range'] integer|boolean
+---@field ['decoration.shadow.render_power'] integer|boolean
+---@field ['decoration.shadow.scale'] number|boolean
+---@field ['decoration.shadow.sharp'] boolean
+---@field ['dwindle.default_split_ratio'] number|boolean
+---@field ['dwindle.force_split'] integer|boolean
+---@field ['dwindle.permanent_direction_override'] boolean
+---@field ['dwindle.precise_mouse_move'] boolean
+---@field ['dwindle.preserve_split'] boolean
+---@field ['dwindle.smart_resizing'] boolean
+---@field ['dwindle.smart_split'] boolean
+---@field ['dwindle.special_scale_factor'] number|boolean
+---@field ['dwindle.split_bias'] integer|boolean
+---@field ['dwindle.split_width_multiplier'] number|boolean
+---@field ['dwindle.use_active_for_splits'] boolean
+---@field ['ecosystem.enforce_permissions'] boolean
+---@field ['ecosystem.no_donation_nag'] boolean
+---@field ['ecosystem.no_update_news'] boolean
+---@field ['experimental.wp_cm_1_2'] boolean
+---@field ['general.allow_tearing'] boolean
+---@field ['general.border_size'] integer|boolean
+---@field ['general.col.active_border'] string|HL.Gradient
+---@field ['general.col.inactive_border'] string|HL.Gradient
+---@field ['general.col.nogroup_border'] string|HL.Gradient
+---@field ['general.col.nogroup_border_active'] string|HL.Gradient
+---@field ['general.extend_border_grab_area'] integer|boolean
+---@field ['general.float_gaps'] integer|HL.CssGap
+---@field ['general.gaps_in'] integer|HL.CssGap
+---@field ['general.gaps_out'] integer|HL.CssGap
+---@field ['general.gaps_workspaces'] integer|boolean
+---@field ['general.hover_icon_on_border'] boolean
+---@field ['general.layout'] string
+---@field ['general.locale'] string
+---@field ['general.modal_parent_blocking'] boolean
+---@field ['general.no_focus_fallback'] boolean
+---@field ['general.resize_corner'] integer|boolean
+---@field ['general.resize_on_border'] boolean
+---@field ['general.snap.border_overlap'] boolean
+---@field ['general.snap.enabled'] boolean
+---@field ['general.snap.monitor_gap'] integer|boolean
+---@field ['general.snap.respect_gaps'] boolean
+---@field ['general.snap.window_gap'] integer|boolean
+---@field ['gestures.close_max_timeout'] integer|boolean
+---@field ['gestures.scrolling.move_snap_cursor'] boolean
+---@field ['gestures.scrolling.move_snap_to_grid'] boolean
+---@field ['gestures.workspace_swipe_cancel_ratio'] number|boolean
+---@field ['gestures.workspace_swipe_create_new'] boolean
+---@field ['gestures.workspace_swipe_direction_lock'] boolean
+---@field ['gestures.workspace_swipe_direction_lock_threshold'] integer|boolean
+---@field ['gestures.workspace_swipe_distance'] integer|boolean
+---@field ['gestures.workspace_swipe_forever'] boolean
+---@field ['gestures.workspace_swipe_invert'] boolean
+---@field ['gestures.workspace_swipe_min_speed_to_force'] integer|boolean
+---@field ['gestures.workspace_swipe_touch'] boolean
+---@field ['gestures.workspace_swipe_touch_invert'] boolean
+---@field ['gestures.workspace_swipe_use_r'] boolean
+---@field ['group.auto_group'] boolean
+---@field ['group.col.border_active'] string|HL.Gradient
+---@field ['group.col.border_inactive'] string|HL.Gradient
+---@field ['group.col.border_locked_active'] string|HL.Gradient
+---@field ['group.col.border_locked_inactive'] string|HL.Gradient
+---@field ['group.drag_into_group'] integer|boolean
+---@field ['group.focus_removed_window'] boolean
+---@field ['group.group_on_movetoworkspace'] boolean
+---@field ['group.groupbar.blur'] boolean
+---@field ['group.groupbar.col.active'] string|HL.Gradient
+---@field ['group.groupbar.col.inactive'] string|HL.Gradient
+---@field ['group.groupbar.col.locked_active'] string|HL.Gradient
+---@field ['group.groupbar.col.locked_inactive'] string|HL.Gradient
+---@field ['group.groupbar.enabled'] boolean
+---@field ['group.groupbar.font_family'] string
+---@field ['group.groupbar.font_size'] integer|boolean
+---@field ['group.groupbar.font_weight_active'] integer|string
+---@field ['group.groupbar.font_weight_inactive'] integer|string
+---@field ['group.groupbar.gaps_in'] integer|boolean
+---@field ['group.groupbar.gaps_out'] integer|boolean
+---@field ['group.groupbar.gradient_round_only_edges'] boolean
+---@field ['group.groupbar.gradient_rounding'] integer|boolean
+---@field ['group.groupbar.gradient_rounding_power'] number|boolean
+---@field ['group.groupbar.gradients'] boolean
+---@field ['group.groupbar.height'] integer|boolean
+---@field ['group.groupbar.indicator_gap'] integer|boolean
+---@field ['group.groupbar.indicator_height'] integer|boolean
+---@field ['group.groupbar.keep_upper_gap'] boolean
+---@field ['group.groupbar.middle_click_close'] boolean
+---@field ['group.groupbar.priority'] integer|boolean
+---@field ['group.groupbar.render_titles'] boolean
+---@field ['group.groupbar.round_only_edges'] boolean
+---@field ['group.groupbar.rounding'] integer|boolean
+---@field ['group.groupbar.rounding_power'] number|boolean
+---@field ['group.groupbar.scrolling'] boolean
+---@field ['group.groupbar.stacked'] boolean
+---@field ['group.groupbar.text_color'] string
+---@field ['group.groupbar.text_color_inactive'] string
+---@field ['group.groupbar.text_color_locked_active'] string
+---@field ['group.groupbar.text_color_locked_inactive'] string
+---@field ['group.groupbar.text_offset'] integer|boolean
+---@field ['group.groupbar.text_padding'] integer|boolean
+---@field ['group.insert_after_current'] boolean
+---@field ['group.merge_floated_into_tiled_on_groupbar'] boolean
+---@field ['group.merge_groups_on_drag'] boolean
+---@field ['group.merge_groups_on_groupbar'] boolean
+---@field ['input.accel_profile'] string
+---@field ['input.emulate_discrete_scroll'] integer|boolean
+---@field ['input.float_switch_override_focus'] integer|boolean
+---@field ['input.focus_on_close'] integer|boolean
+---@field ['input.follow_mouse'] integer|boolean
+---@field ['input.follow_mouse_shrink'] integer|boolean
+---@field ['input.follow_mouse_threshold'] number|boolean
+---@field ['input.force_no_accel'] boolean
+---@field ['input.kb_file'] string
+---@field ['input.kb_layout'] string
+---@field ['input.kb_model'] string
+---@field ['input.kb_options'] string
+---@field ['input.kb_rules'] string
+---@field ['input.kb_variant'] string
+---@field ['input.left_handed'] boolean
+---@field ['input.mouse_refocus'] boolean
+---@field ['input.natural_scroll'] boolean
+---@field ['input.numlock_by_default'] boolean
+---@field ['input.off_window_axis_events'] integer|boolean
+---@field ['input.repeat_delay'] integer|boolean
+---@field ['input.repeat_rate'] integer|boolean
+---@field ['input.resolve_binds_by_sym'] boolean
+---@field ['input.rotation'] integer|boolean
+---@field ['input.scroll_button'] integer|boolean
+---@field ['input.scroll_button_lock'] boolean
+---@field ['input.scroll_factor'] number|boolean
+---@field ['input.scroll_method'] string
+---@field ['input.scroll_points'] string
+---@field ['input.sensitivity'] number|boolean
+---@field ['input.special_fallthrough'] boolean
+---@field ['input.tablet.absolute_region_position'] boolean
+---@field ['input.tablet.active_area_position'] HL.Vec2Like
+---@field ['input.tablet.active_area_size'] HL.Vec2Like
+---@field ['input.tablet.left_handed'] boolean
+---@field ['input.tablet.output'] string
+---@field ['input.tablet.region_position'] HL.Vec2Like
+---@field ['input.tablet.region_size'] HL.Vec2Like
+---@field ['input.tablet.relative_input'] boolean
+---@field ['input.tablet.transform'] integer|boolean
+---@field ['input.touchdevice.enabled'] boolean
+---@field ['input.touchdevice.output'] string
+---@field ['input.touchdevice.transform'] integer|boolean
+---@field ['input.touchpad.clickfinger_behavior'] boolean
+---@field ['input.touchpad.disable_while_typing'] boolean
+---@field ['input.touchpad.drag_3fg'] integer|boolean
+---@field ['input.touchpad.drag_lock'] integer|boolean
+---@field ['input.touchpad.flip_x'] boolean
+---@field ['input.touchpad.flip_y'] boolean
+---@field ['input.touchpad.middle_button_emulation'] boolean
+---@field ['input.touchpad.natural_scroll'] boolean
+---@field ['input.touchpad.scroll_factor'] number|boolean
+---@field ['input.touchpad.tap_and_drag'] boolean
+---@field ['input.touchpad.tap_button_map'] string
+---@field ['input.touchpad.tap_to_click'] boolean
+---@field ['input.virtualkeyboard.release_pressed_on_close'] boolean
+---@field ['input.virtualkeyboard.share_states'] integer|boolean
+---@field ['layout.single_window_aspect_ratio'] HL.Vec2Like
+---@field ['layout.single_window_aspect_ratio_tolerance'] number|boolean
+---@field ['master.allow_small_split'] boolean
+---@field ['master.always_keep_position'] boolean
+---@field ['master.center_ignores_reserved'] boolean
+---@field ['master.center_master_fallback'] string
+---@field ['master.drop_at_cursor'] boolean
+---@field ['master.mfact'] number|boolean
+---@field ['master.new_on_active'] string
+---@field ['master.new_on_top'] boolean
+---@field ['master.new_status'] string
+---@field ['master.orientation'] string
+---@field ['master.slave_count_for_center_master'] integer|boolean
+---@field ['master.smart_resizing'] boolean
+---@field ['master.special_scale_factor'] number|boolean
+---@field ['misc.allow_session_lock_restore'] boolean
+---@field ['misc.always_follow_on_dnd'] boolean
+---@field ['misc.animate_manual_resizes'] boolean
+---@field ['misc.animate_mouse_windowdragging'] boolean
+---@field ['misc.anr_missed_pings'] integer|boolean
+---@field ['misc.background_color'] string
+---@field ['misc.close_special_on_empty'] boolean
+---@field ['misc.col.splash'] string
+---@field ['misc.disable_autoreload'] boolean
+---@field ['misc.disable_hyprland_guiutils_check'] boolean
+---@field ['misc.disable_hyprland_logo'] boolean
+---@field ['misc.disable_scale_notification'] boolean
+---@field ['misc.disable_splash_rendering'] boolean
+---@field ['misc.disable_watchdog_warning'] boolean
+---@field ['misc.disable_xdg_env_checks'] boolean
+---@field ['misc.enable_anr_dialog'] boolean
+---@field ['misc.enable_swallow'] boolean
+---@field ['misc.exit_window_retains_fullscreen'] boolean
+---@field ['misc.focus_on_activate'] boolean
+---@field ['misc.font_family'] string
+---@field ['misc.force_default_wallpaper'] integer|boolean
+---@field ['misc.initial_workspace_tracking'] integer|boolean
+---@field ['misc.key_press_enables_dpms'] boolean
+---@field ['misc.layers_hog_keyboard_focus'] boolean
+---@field ['misc.lockdead_screen_delay'] integer|boolean
+---@field ['misc.middle_click_paste'] boolean
+---@field ['misc.mouse_move_enables_dpms'] boolean
+---@field ['misc.mouse_move_focuses_monitor'] boolean
+---@field ['misc.name_vk_after_proc'] boolean
+---@field ['misc.on_focus_under_fullscreen'] integer|boolean
+---@field ['misc.render_unfocused_fps'] integer|boolean
+---@field ['misc.screencopy_force_8b'] boolean
+---@field ['misc.session_lock_xray'] boolean
+---@field ['misc.size_limits_tiled'] boolean
+---@field ['misc.splash_font_family'] string
+---@field ['misc.swallow_exception_regex'] string
+---@field ['misc.swallow_regex'] string
+---@field ['misc.vrr'] integer|boolean
+---@field ['opengl.nvidia_anti_flicker'] boolean
+---@field ['quirks.prefer_hdr'] integer|boolean
+---@field ['quirks.skip_non_kms_dmabuf_formats'] boolean
+---@field ['render.cm_auto_hdr'] integer|boolean
+---@field ['render.cm_enabled'] boolean
+---@field ['render.cm_sdr_eotf'] string
+---@field ['render.commit_timing_enabled'] boolean
+---@field ['render.ctm_animation'] integer|boolean
+---@field ['render.direct_scanout'] integer|boolean
+---@field ['render.expand_undersized_textures'] boolean
+---@field ['render.fp16_sdr_tf'] integer|boolean
+---@field ['render.icc_vcgt_enabled'] boolean
+---@field ['render.keep_unmodified_copy'] integer|boolean
+---@field ['render.new_render_scheduling'] boolean
+---@field ['render.non_shader_cm'] integer|boolean
+---@field ['render.non_shader_cm_interop'] integer|boolean
+---@field ['render.send_content_type'] boolean
+---@field ['render.use_fp16'] integer|boolean
+---@field ['render.use_shader_blur_blend'] boolean
+---@field ['render.xp_mode'] boolean
+---@field ['scrolling.column_width'] number|boolean
+---@field ['scrolling.direction'] string
+---@field ['scrolling.explicit_column_widths'] string
+---@field ['scrolling.focus_fit_method'] integer|boolean
+---@field ['scrolling.follow_focus'] boolean
+---@field ['scrolling.follow_min_visible'] number|boolean
+---@field ['scrolling.fullscreen_on_one_column'] boolean
+---@field ['scrolling.wrap_focus'] boolean
+---@field ['scrolling.wrap_swapcol'] boolean
+---@field ['xwayland.create_abstract_socket'] boolean
+---@field ['xwayland.enabled'] boolean
+---@field ['xwayland.force_zero_scaling'] boolean
+---@field ['xwayland.use_nearest_neighbor'] boolean
+local __HL_ConfigValueTypes = {}
