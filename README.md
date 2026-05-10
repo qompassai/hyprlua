@@ -20,8 +20,6 @@
 <h3>lua_ls addon providing full EmmyLua annotations for the Hyprland ≥ 0.55 Lua config API</h3>
 
 
-
-
 <p align="center">
   <a href="https://hyprland.org">
     <img src="https://img.shields.io/badge/Hyprland-0.55+-blue?style=for-the-badge&logo=linux&logoColor=white"
@@ -36,6 +34,9 @@
   </a>
   <a href="https://neovim.io">
     <img src="https://img.shields.io/badge/Neovim-Compatible-57A143?style=flat-square&logo=neovim&logoColor=white" alt="Neovim Compatible">
+  </a>
+  <a href="https://luarocks.org/modules/phaedrusflow/hyprlua">
+    <img src="https://img.shields.io/badge/LuaRocks-hyprlua-blue?style=flat-square&logo=lua&logoColor=white" alt="LuaRocks">
   </a>
   <br>
   <a href="./LICENSES/Apache-2.0.txt">
@@ -84,18 +85,18 @@ require("lspconfig").lua_ls.setup({
 
 ```
 hyprlua/
-├── config.jsonc              ← LLS-Addons legacy manifest
-├── hyprlua.rockspec          ← Canonical manifest (luarocks-build-lls-addon)
+├── config.jsonc
+├── hyprlua.rockspec
 ├── library/
-│   ├── hl.lua                ← All runtime types, classes, namespaces, hl global
-│   └── hl.config.lua         ← HL.ConfigKey alias (300+ keys) + HL.ConfigValueTypes
+│   ├── hl.lua
+│   └── hl.config.lua
 ├── LICENSES/
-│   ├── Apache-2.0.txt        ← Qompass AI original work
-│   └── BSD-3-Clause.txt      ← Hyprland upstream stub attribution
-├── plugin.lua                ← lua_ls OnSetText hook (scoped to hypr*.lua)
+│   ├── Apache-2.0.txt
+│   └── BSD-3-Clause.txt
+├── plugin.lua
 ├── README.md
 ├── README.pdf
-└── settings.json             ← Recommended settings for manual Neovim installs
+└── settings.json
 ```
 
 | File | Purpose |
@@ -133,10 +134,7 @@ require("lspconfig").lua_ls.setup({
       runtime    = { version = "Lua 5.4" },
       workspace  = { library = { vim.fn.expand("~/.local/share/nvim/hyprlua/library") } },
       diagnostics = {
-      globals = {
-      "hl"
-    }
-      },
+      globals = { "hl" } },
     },
   },
 })

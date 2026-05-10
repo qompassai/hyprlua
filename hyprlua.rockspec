@@ -4,11 +4,11 @@
 -- ----------------------------------------
 rockspec_format = '3.0'
 package = 'hyprlua'
-version = 'dev-1'
+version = '0.1.0-1'
 description = {
     detailed = [[
         LuaCATS type annotations and lua_ls addon definitions for
-        Hyprland 0.55+'s Lua configuration API. Provides full
+        Hyprland 0.55+'s Lua configuration API. Goal is to provide full
         completions, hover docs, and type-checking for the hl.*
         global namespace, dispatchers, layout API, and events.
     ]],
@@ -17,13 +17,14 @@ description = {
     labels = {
         'annotations',
         'hyprland',
-        'lua-language-server',
         'luacats',
+        'lua-language-server',
+'lua_ls',
         'types',
         'wayland',
     },
     license = 'Apache-2.0',
-    maintainer = 'Qompass AI <dev@qompass.ai>',
+    maintainer = 'Qompass AI <map@qompass.ai>',
     summary = 'LuaCATS annotations for the Hyprland 0.55+ Lua config API',
 }
 source = {
@@ -47,7 +48,6 @@ test_dependencies = {
 }
 
 build = {
-    -- https://github.com/LuaLS/luarocks-build-addon
     type = 'lls-addon',
     copy_directories = {
         'library',
@@ -66,9 +66,7 @@ build = {
             ['type-check'] = 'Warning',
         },
         ['runtime.builtin'] = {
-            ffi = 'enable',
-            jit = 'enable',
-            utf8 = 'disable',
+            utf8 = 'enable',
         },
         ['runtime.version'] = 'Lua 5.4',
         ['workspace.preloadFileSize'] = 5000,
