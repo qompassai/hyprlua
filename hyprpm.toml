@@ -1,0 +1,24 @@
+# hyprpm.toml
+# Qompass AI Hyprlua Plugin Manager Config
+# Copyright (C) 2026 Qompass AI, All rights reserved
+# ----------------------------------------
+[repository]
+name = "hyprlua"
+authors = ["Qompass AI"]
+commit_pins = [
+  [
+    "4b07770b9ef1cceb2e6f56d33538aaffb9186b9c",
+    "a982048873bbdae5fd3c9d068117004527e2ff10",
+  ],
+]
+
+[hyprlua]
+description = "Lua 5.4 scripting support for Hyprland"
+authors = ["Qompass AI"]
+output = "build/libhyprlua.so"
+build = [
+  "cmake -B build -DCMAKE_BUILD_TYPE=Release",
+  "cmake --build build -j$(nproc)",
+  "cmake -B build -DCMAKE_BUILD_TYPE=Release",
+"cmake --build build -j$(nproc)",
+]
