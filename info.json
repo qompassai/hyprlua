@@ -1,0 +1,6 @@
+{
+  "name": "hyprlua",
+  "description": "LuaCATS type annotations and lua_ls addon for Hyprland 0.55+. Provides autocomplete, hover docs, and type-checking for the full hl.* global API.",
+  "author": "Qompass AI",
+  "license": "Apache-2.0"
+}
