@@ -1,14 +1,11 @@
 #!/usr/bin/env lua.4
-
+---@version 5.4
 -- logs.lua
 -- Qompass AI - [ ]
 -- Copyright (C) 2026 Qompass AI, All rights reserved
 -- ----------------------------------------
----@module logs
-
+----@module logs
 local logs = {}
-
---- ANSI color codes for terminal output.
 local colors = {
 	reset = "\27[0m",
 	red = "\27[31m",
@@ -19,21 +16,17 @@ local colors = {
 	cyan = "\27[36m",
 	white = "\27[37m",
 }
-
---- Print a message with the given ANSI color.
---- @param color string: ANSI escape sequence
---- @param message string: Text to print
+--- @param color string:                                   ANSI escape sequence
+--- @param message string:                                 Text to print
 local function print_colored(color, message)
 	print(color .. message .. colors.reset)
 end
 
---- Log an error message in red.
---- @param message string: Error text
+--- @param message                                         string: Error text
 function logs.error(message)
 	print_colored(colors.red, message)
 end
 
---- Log a general message in white.
 --- @param message string: Message text
 function logs.print(message)
 	print_colored(colors.white, message)
