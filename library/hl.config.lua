@@ -1,6 +1,6 @@
 -- /qompassai/lua/lua_ls/addons/hyprlua/library/hl.config.lua
 -- Qompass AI HyprLua lua_ls Addon Library Config
---
+---@disable-diagnostics:duplicate-doc-field
 -- Copyright (C) 2026 Qompass AI, All rights reserved.
 -- SPDX-License-Identifier: Apache-2.0
 --
@@ -21,7 +21,12 @@
 -- SPDX-License-Identifier: BSD-3-Clause
 -- Source: https://github.com/hyprwm/Hyprland
 ---@meta
-
+---@class                    HL.Vec2
+---@field x                                                number
+---@field y                                                number
+local __HL_Vec2 = {}
+---@alias HL.Vec2Like                                      HL.Vec2|{x:number, y:number}|{number: number}|string
+---@alias HL.Gradient                                      string|{colors:string[], angle?:number}
 ---@alias HL.ConfigKey
 ---| "animations.enabled"
 ---| "animations.workspace_wraparound"
@@ -365,14 +370,14 @@
 ---| "xwayland.force_zero_scaling"
 ---| "xwayland.use_nearest_neighbor"
 
----@class HL.ConfigValueTypes
----@field ['animations.enabled'] boolean
----@field ['animations.workspace_wraparound'] boolean
----@field ['binds.allow_pin_fullscreen'] boolean
----@field ['binds.allow_workspace_cycles'] boolean
----@field ['binds.disable_keybind_grabbing'] boolean
----@field ['binds.drag_threshold'] integer|boolean
----@field ['binds.focus_preferred_method'] integer|boolean
+---@class                    HL.ConfigValueTypes
+---@field ['animations.enabled']                           boolean
+---@field ['animations.workspace_wraparound']              boolean
+---@field ['binds.allow_pin_fullscreen']                   boolean
+---@field ['binds.allow_workspace_cycles']                 boolean
+---@field ['binds.disable_keybind_grabbing']               boolean
+---@field ['binds.drag_threshold']                         integer|boolean
+---@field ['binds.focus_preferred_method']                 integer|boolean
 ---@field ['binds.hide_special_on_workspace_change'] boolean
 ---@field ['binds.ignore_group_lock'] boolean
 ---@field ['binds.movefocus_cycles_fullscreen'] boolean
@@ -381,8 +386,8 @@
 ---@field ['binds.scroll_event_delay'] integer|boolean
 ---@field ['binds.window_direction_monitor_fallback'] boolean
 ---@field ['binds.workspace_back_and_forth'] boolean
----@field ['binds.workspace_center_on'] integer|boolean
----@field ['cursor.default_monitor'] string
+---@field ['binds.workspace_center_on']                    integer|boolean
+---@field ['cursor.default_monitor']                       string
 ---@field ['cursor.enable_hyprcursor'] boolean
 ---@field ['cursor.hide_on_key_press'] boolean
 ---@field ['cursor.hide_on_tablet'] boolean
@@ -392,9 +397,9 @@
 ---@field ['cursor.invisible'] boolean
 ---@field ['cursor.min_refresh_rate'] integer|boolean
 ---@field ['cursor.no_break_fs_vrr'] integer|boolean
----@field ['cursor.no_hardware_cursors'] integer|boolean
----@field ['cursor.no_warps'] boolean
----@field ['cursor.persistent_warps'] boolean
+---@field ['cursor.no_hardware_cursors']                   integer|boolean
+---@field ['cursor.no_warps']                              boolean
+---@field ['cursor.persistent_warps']                      boolean
 ---@field ['cursor.sync_gsettings_theme'] boolean
 ---@field ['cursor.use_cpu_buffer'] integer|boolean
 ---@field ['cursor.warp_back_after_non_mouse_input'] boolean
@@ -462,10 +467,10 @@
 ---@field ['decoration.shadow.color'] string
 ---@field ['decoration.shadow.color_inactive'] string
 ---@field ['decoration.shadow.enabled'] boolean
----@field ['decoration.shadow.offset'] HL.Vec2Like
----@field ['decoration.shadow.range'] integer|boolean
----@field ['decoration.shadow.render_power'] integer|boolean
----@field ['decoration.shadow.scale'] number|boolean
+---@field ['decoration.shadow.offset']                     HL.Vec2Like
+---@field ['decoration.shadow.range']                      integer|boolean
+---@field ['decoration.shadow.render_power']               integer|boolean
+---@field ['decoration.shadow.scale']                      number|boolean
 ---@field ['decoration.shadow.sharp'] boolean
 ---@field ['dwindle.default_split_ratio'] number|boolean
 ---@field ['dwindle.force_split'] integer|boolean
@@ -484,14 +489,14 @@
 ---@field ['experimental.wp_cm_1_2'] boolean
 ---@field ['general.allow_tearing'] boolean
 ---@field ['general.border_size'] integer|boolean
----@field ['general.col.active_border'] string|HL.Gradient
----@field ['general.col.inactive_border'] string|HL.Gradient
----@field ['general.col.nogroup_border'] string|HL.Gradient
----@field ['general.col.nogroup_border_active'] string|HL.Gradient
+---@field ['general.col.active_border']                     string|HL.Gradient
+---@field ['general.col.inactive_border']                   string|HL.Gradient
+---@field ['general.col.nogroup_border']                    string|HL.Gradient
+---@field ['general.col.nogroup_border_active']             string|HL.Gradient
 ---@field ['general.extend_border_grab_area'] integer|boolean
----@field ['general.float_gaps'] integer|HL.CssGap
----@field ['general.gaps_in'] integer|HL.CssGap
----@field ['general.gaps_out'] integer|HL.CssGap
+----@field ['general.float_gaps'] integer|HL.CssGap
+----@field ['general.gaps_in'] integer|HL.CssGap
+----@field ['general.gaps_out'] integer|HL.CssGap
 ---@field ['general.gaps_workspaces'] integer|boolean
 ---@field ['general.hover_icon_on_border'] boolean
 ---@field ['general.layout'] string
@@ -621,7 +626,7 @@
 ---@field ['input.touchpad.tap_to_click'] boolean
 ---@field ['input.virtualkeyboard.release_pressed_on_close'] boolean
 ---@field ['input.virtualkeyboard.share_states'] integer|boolean
----@field ['layout.single_window_aspect_ratio'] HL.Vec2Like
+----@field ['layout.single_window_aspect_ratio'] HL.Vec2Like
 ---@field ['layout.single_window_aspect_ratio_tolerance'] number|boolean
 ---@field ['master.allow_small_split'] boolean
 ---@field ['master.always_keep_position'] boolean
@@ -645,15 +650,15 @@
 ---@field ['misc.close_special_on_empty'] boolean
 ---@field ['misc.col.splash'] string
 ---@field ['misc.disable_autoreload'] boolean
----@field ['misc.disable_hyprland_guiutils_check'] boolean
----@field ['misc.disable_hyprland_logo'] boolean
----@field ['misc.disable_scale_notification'] boolean
----@field ['misc.disable_splash_rendering'] boolean
----@field ['misc.disable_watchdog_warning'] boolean
----@field ['misc.disable_xdg_env_checks'] boolean
----@field ['misc.enable_anr_dialog'] boolean
----@field ['misc.enable_swallow'] boolean
----@field ['misc.exit_window_retains_fullscreen'] boolean
+---@field ['misc.disable_hyprland_guiutils_check']         boolean
+---@field ['misc.disable_hyprland_logo']                   boolean
+---@field ['misc.disable_scale_notification']              boolean
+---@field ['misc.disable_splash_rendering']                boolean
+---@field ['misc.disable_watchdog_warning']                boolean
+---@field ['misc.disable_xdg_env_checks']                  boolean
+---@field ['misc.enable_anr_dialog']                       boolean
+---@field ['misc.enable_swallow']                          boolean
+---@field ['misc.exit_window_retains_fullscreen']          boolean
 ---@field ['misc.focus_on_activate'] boolean
 ---@field ['misc.font_family'] string
 ---@field ['misc.force_default_wallpaper'] integer|boolean
@@ -701,10 +706,10 @@
 ---@field ['scrolling.follow_focus'] boolean
 ---@field ['scrolling.follow_min_visible'] number|boolean
 ---@field ['scrolling.fullscreen_on_one_column'] boolean
----@field ['scrolling.wrap_focus'] boolean
----@field ['scrolling.wrap_swapcol'] boolean
+---@field ['scrolling.wrap_focus']                         boolean
+---@field ['scrolling.wrap_swapcol']                       boolean
 ---@field ['xwayland.create_abstract_socket'] boolean
 ---@field ['xwayland.enabled'] boolean
 ---@field ['xwayland.force_zero_scaling'] boolean
----@field ['xwayland.use_nearest_neighbor'] boolean
+---@field ['xwayland.use_nearest_neighbor']                boolean
 local __HL_ConfigValueTypes = {}

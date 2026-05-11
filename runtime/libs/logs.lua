@@ -1,12 +1,10 @@
-#!/usr/bin/env lua
+#!/usr/bin/env lua.4
 
 -- logs.lua
 -- Qompass AI - [ ]
 -- Copyright (C) 2026 Qompass AI, All rights reserved
 -- ----------------------------------------
---- Logs Module
---- ANSI-colored terminal output helpers for Lua-side logging.
---- @module logs
+---@module logs
 
 local logs = {}
 

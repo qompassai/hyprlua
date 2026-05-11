@@ -1,41 +1,48 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LuaLS/lua-language-server/master/meta/schemas/luarc.schema.json",
-  "runtime.version": "LuaJIT",
-  "workspace.library": [
-    "/usr/share/hypr/stubs",
-    "./stubs"
-  ],
-  "workspace.checkThirdParty": false,
-  "workspace.useGitIgnore": true,
-  "workspace.ignoreDir": [
-    "tmp",
-    ".git"
-  ],
-  "diagnostics.globals": [
-    "hl"
-  ],
-  "diagnostics.disable": [
-    "lowercase-global",
-    "undefined-type",
-    "unused-local"
-  ],
-  "diagnostics.enable": true,
-  "diagnostics.neededFileStatus": {
-    "undefined-field": "Any",
-    "unused-function": "Opened",
-    "unused-var": "Opened"
-  },
-  "diagnostics.severity": {
-    "unused-function": "Warning",
-    "unused-var": "Hint",
-    "undefined-field": "Warning"
-  },
-  "semantic.enable": true,
-  "semantic.keyword": true,
-  "format.enable": true,
-  "type.cast": true,
-  "type.weakNilCheck": true,
-  "type.weakUnionCheck": true,
-  "completion.keywordSnippet": "Replace",
-  "completion.workspaceWord": true
+    "$schema": "https://raw.githubusercontent.com/LuaLS/lua-language-server/master/meta/schemas/luarc.schema.json",
+    "runtime.version": "Lua 5.4",
+    "workspace.library": [
+        "/usr/share/hypr/stubs",
+        "./stubs"
+    ],
+    "workspace.checkThirdParty": false,
+    "workspace.useGitIgnore": true,
+    "workspace.ignoreDir": [
+        "tmp",
+        ".git"
+    ],
+    "diagnostics.globals": [
+        "apply_monitor_layout",
+        "hl",
+        "hypr",
+        "__hypr_add_monitor",
+        "__hypr_disable_monitor",
+        "__hypr_add_bind",
+        "__hypr_add_rule",
+        "__hypr_exec"
+    ],
+    "diagnostics.disable": [
+        "lowercase-global",
+        "undefined-type",
+        "unused-local"
+    ],
+    "diagnostics.enable": true,
+    "diagnostics.neededFileStatus": {
+        "undefined-field": "Any",
+        "unused-function": "Opened",
+        "unused-var": "Opened"
+    },
+    "diagnostics.severity": {
+        "unused-function": "Warning",
+        "unused-var": "Hint",
+        "undefined-field": "Warning"
+    },
+    "semantic.enable": true,
+    "semantic.keyword": true,
+    "format.enable": true,
+    "type.cast": true,
+    "type.weakNilCheck": true,
+    "type.weakUnionCheck": true,
+    "completion.keywordSnippet": "Replace",
+    "completion.workspaceWord": true
 }
