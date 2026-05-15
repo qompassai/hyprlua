@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
+    "author": "Qompass AI",
+    "description": "Hyprland 0.55+ Lua API definitions for lua_ls",
+    "files": ["hyprland%.lua", "hypr%.lua"],
+    "license": "Apache-2.0",
+    "name": "hyprlua",
+    "settings": {
+        "Lua.diagnostics.globals": ["hl"],
+        "Lua.runtime.builtin": {
+            "ffi": "disable",
+            "jit": "disable"
+        },
+        "Lua.runtime.special": {
+            "hl.require": "require"
+        },
+        "Lua.runtime.version": "Lua 5.4",
+        "Lua.workspace.checkThirdParty": "Apply"
+    },
+    "version": "0.1.0",
+    "words": ["hl%.", "require[%s%(%\"']hyprland[%)%\"']"]
+}
